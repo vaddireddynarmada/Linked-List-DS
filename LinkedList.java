@@ -7,7 +7,6 @@ public class LinkedList {
         this.head = null;
         this.tail = null;
     }
-
     public void add(INode newNode) {
         if (this.tail == null) {
             this.tail = newNode;
@@ -20,7 +19,6 @@ public class LinkedList {
             this.head.setNext(temp);
 
         }
-
     }
 
     public void append(INode newNode) {
@@ -37,9 +35,15 @@ public class LinkedList {
     }
 
     public void insert(INode previousNode, INode newNode) {
-        INode temporaryNode = previousNode.getNext();
+        INode temp = previousNode.getNext();
         previousNode.setNext(newNode);
-        newNode.setNext(temporaryNode);
+        newNode.setNext(temp);
+    }
+
+    public INode pop() {
+        INode temporaryNode = this.head;
+        this.head = this.head.getNext();
+        return temporaryNode;
     }
 
     public void print() {

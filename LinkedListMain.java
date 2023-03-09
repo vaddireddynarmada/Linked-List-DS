@@ -7,8 +7,12 @@ public class LinkedListMain {
         LinkedList myLinkedList = new LinkedList();
         myLinkedList.add(firstNode);
         myLinkedList.append(thirdNode);
-        System.out.println("Inserting 30 between 56 and 70");
         myLinkedList.insert(firstNode, secondNode);
+        System.out.println("Linked list before deletion: ");
+        myLinkedList.print();
+        INode deletedNode = myLinkedList.pop();
+        System.out.println("The deleted key value is :" + deletedNode.getKey());
+        System.out.println("Linked list after deletion:");
         myLinkedList.print();
     }
 }
