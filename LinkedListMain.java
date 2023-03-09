@@ -10,9 +10,7 @@ public class LinkedListMain {
         myLinkedList.insert(firstNode, secondNode);
         System.out.println("Linked list before deletion: ");
         myLinkedList.print();
-        INode deletedNode = myLinkedList.pop();
-        System.out.println("The deleted key value is :" + deletedNode.getKey());
-        System.out.println("Linked list after deletion:");
-        myLinkedList.print();
+        INode deletedNode = myLinkedList.popLast();
+        System.out.println("The deleted key value is:"+deletedNode.getKey());
     }
 }
