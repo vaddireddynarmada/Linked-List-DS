@@ -86,6 +86,20 @@ public class LinkedList {
         }
     }
 
+    public int size() {
+        int numberOfNode = 0;
+        INode temp = this.head;
+        while (temp != null) {
+            temp = temp.getNext();
+            numberOfNode++;
+        }
+        return numberOfNode;
+    }
+
+    public void printLinkedList() {
+        System.out.println("My Nodes: " + head);
+    }
+
     public void print() {
         System.out.println("My Nodes: " + head);
     }
