@@ -9,29 +9,26 @@ public class LinkedList {
     }
 
     public void add(INode newNode) {
-        if(this.tail == null) {
+        if (this.tail == null) {
             this.tail = newNode;
         }
-        if(this.head == null) {
+        if (this.head == null) {
             this.head = newNode;
-        }
-        else {
-            INode temporarayNode = this.head;
+        } else {
+            INode temp = this.head;
             this.head = newNode;
-            this.head.setNext(temporarayNode);
+            this.head.setNext(temp);
 
         }
-
     }
 
-    public void append (INode newNode) {
-        if(this.tail == null) {
+    public void append(INode newNode) {
+        if (this.tail == null) {
             this.tail = newNode;
         }
-        if(this.head == null) {
+        if (this.head == null) {
             this.head = newNode;
-        }
-        else {
+        } else {
             INode tempINode = this.tail;
             this.tail.setNext(newNode);
             this.tail = newNode;
@@ -48,12 +45,11 @@ public class LinkedList {
         INode temporaryNode = this.head;
         this.head = this.head.getNext();
         return temporaryNode;
-
     }
 
     public INode popLast() {
         INode temporaryNode = head;
-        while(!temporaryNode.getNext().equals(tail)) {
+        while (!temporaryNode.getNext().equals(tail)) {
             temporaryNode = temporaryNode.getNext();
         }
         this.tail = temporaryNode;
@@ -64,23 +60,33 @@ public class LinkedList {
     public INode search(int key) {
         INode temp = head;
         boolean isFound = false;
-        while (temp != null  && isFound == false) {
-            if(temp.getKey().equals(key)) {
+        while (temp != null && isFound == false) {
+            if (temp.getKey().equals(key)) {
                 isFound = true;
-            }
-            else {
+            } else {
 
                 temp = temp.getNext();
             }
         }
-        if(isFound)
+        if (isFound)
             return temp;
         else {
             return head;
         }
     }
 
+    public void insertWithKey(int key, INode newNode) {
+        INode nodeWithKeyValue = search(key);
+        if (nodeWithKeyValue.getKey().equals(key)) {
+            INode temp = nodeWithKeyValue.getNext();
+            nodeWithKeyValue.setNext(newNode);
+            newNode.setNext(temp);
+        } else {
+            System.out.println("Key Node Found");
+        }
+    }
+
     public void print() {
-        System.out.println("My Nodes: "+head);
+        System.out.println("My Nodes: " + head);
     }
 }
