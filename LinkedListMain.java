@@ -8,9 +8,12 @@ public class LinkedListMain {
         myLinkedList.add(firstNode);
         myLinkedList.append(thirdNode);
         myLinkedList.insert(firstNode, secondNode);
-        System.out.println("Linked list before deletion: ");
         myLinkedList.print();
-        INode deletedNode = myLinkedList.popLast();
-        System.out.println("The deleted key value is:"+deletedNode.getKey());
-    }
+        INode searchedKey = myLinkedList.search(70);
+        if(searchedKey.getKey().equals(70)) {
+            System.out.println("Key Found");
+        }
+        else {
+            System.out.println("Key Not Found");
+        } }
 }
