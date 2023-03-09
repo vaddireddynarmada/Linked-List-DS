@@ -9,37 +9,40 @@ public class LinkedList {
     }
 
     public void add(INode newNode) {
-        if(this.tail == null) {
+        if (this.tail == null) {
             this.tail = newNode;
         }
-        if(this.head == null) {
+        if (this.head == null) {
             this.head = newNode;
-        }
-        else {
-            INode temporarayNode = this.head;
+        } else {
+            INode temp = this.head;
             this.head = newNode;
-            this.head.setNext(temporarayNode);
+            this.head.setNext(temp);
 
         }
 
     }
 
-    public void append (INode newNode) {
-        if(this.tail == null) {
+    public void append(INode newNode) {
+        if (this.tail == null) {
             this.tail = newNode;
         }
-        if(this.head == null) {
+        if (this.head == null) {
             this.head = newNode;
-        }
-        else {
+        } else {
             INode tempINode = this.tail;
             this.tail.setNext(newNode);
             this.tail = newNode;
         }
     }
 
-    public void print () {
-        System.out.println("My Nodes: "+head);
+    public void insert(INode previousNode, INode newNode) {
+        INode temporaryNode = previousNode.getNext();
+        previousNode.setNext(newNode);
+        newNode.setNext(temporaryNode);
     }
 
+    public void print() {
+        System.out.println("My Nodes: " + head);
+    }
 }
